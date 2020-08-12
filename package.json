@@ -1,0 +1,30 @@
+{
+  "name": "swag-tag-ui5",
+  "version": "0.0.0",
+  "description": "UI5-based component viewer",
+  "main": "swag-tag-ui5.js",
+  "module": "swag-tag-mwc.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "ui5-input-example1": "wca analyze demo/ui5-input-example1.js --outFile demo/ui5-input-example1.json"
+  },
+  "dependencies": {
+    "trans-render": "0.0.239",
+    "xtal-element": "0.0.266",
+    "@ui5/webcomponents": "1.0.0-rc.8",
+    "swag-tag": "0.0.23"
+  },
+  "devDependencies": {
+    "es-dev-server": "1.57.2"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/bahrus/swag-tag-ui5.git"
+  },
+  "author": "",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/bahrus/swag-tag-ui5/issues"
+  },
+  "homepage": "https://github.com/bahrus/swag-tag-ui5#readme"
+}

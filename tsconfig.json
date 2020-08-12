@@ -1,0 +1,14 @@
+{
+	"compilerOptions": {
+		"target": "esnext",
+		"module":"esnext",
+		"sourceMap": false,
+		"experimentalDecorators": true,
+		"newLine": "LF",
+		"watch": true,
+	},
+	"exclude":[
+		"node_modules"
+	]
+
+}
