@@ -1,28 +1,26 @@
 import {
-    SwagTagBase, uiRefs, bindName, addEventListeners, linkWcInfo, triggerImportReferencedModule, 
-    adjustValueAndType, bindSelf, showHideEditor, linkInnerTemplate, copyPropInfoIntoEditor} from './swag-tag-base.js';
+    SwagTag, uiRefs, bindName, addEventListeners, linkWcInfo, triggerImportReferencedModule, 
+    adjustValueAndType, bindSelf, showHideEditor, linkInnerTemplate, copyPropInfoIntoEditor} from 'swag-tag/swag-tag.js';
   import { WCSuiteInfo, WCInfo, PropertyInfo, CustomEventInfo, SlotInfo, AttribInfo } from "wc-info/types.js";
   import {define} from 'xtal-element/XtalElement.js';
   import {RenderContext, PEATSettings} from 'trans-render/types.d.js';
-  //import {SwagTagMWCTextField} from './swag-tag-mwc-textfield.js';
   import {SwagTagUI5Input} from './lib/swag-tag-ui5-input.js';
-  import {SwagTagUI5Checkbox} from './swag-tag-ui5-checkbox.js';
-  //import {SwagTagMWCTextarea} from './swag-tag-mwc-textarea.js';
-  import {SwagTagJsonEditor} from './swag-tag-json-editor.js';
-  import {SwagTagMWCSelect} from './swag-tag-mwc-select.js';
+  import {SwagTagUI5Checkbox} from './lib/swag-tag-ui5-checkbox.js';
+  import {SwagTagJsonEditor} from 'swag-tag/lib/swag-tag-json-editor.js';
+  import {SwagTagUI5Select} from './lib/swag-tag-ui5-select.js';
   import { SelectiveUpdate} from "../xtal-element/types.js";
   
   
   
   const copyPropInfoIntoEditors = {
-    [`${SwagTagUI5Input.is},${SwagTagUI5Checkbox.is},${SwagTagJsonEditor.is},${SwagTagMWCSelect.is}`]: copyPropInfoIntoEditor,
+    [`${SwagTagUI5Input.is},${SwagTagUI5Checkbox.is},${SwagTagJsonEditor.is},${SwagTagUI5Select.is}`]: copyPropInfoIntoEditor,
   };
   
-  export const addEditors =   ({massagedProps, name}: SwagTagBase) => ({
+  export const addEditors =   ({massagedProps, name}: SwagTag) => ({
       // Loop over massagedProps, and insert dynamic editor via tag name (item.editor is the tag name)
       [uiRefs.fieldset]: [
         //Array to loop over
-        massagedProps || [], 
+        massagedProps, 
         //A **toTagOrTemplate** function that returns a string -- used to generate a (custom element) with the name of the string.
         ({item}: RenderContext) => (<any>item).editor,
         //empty range
@@ -33,7 +31,7 @@ import {
   });
   
   const massaged = Symbol();
-  export const linkMassagedProps = ({properties, self, block}: SwagTagBase) => {
+  export const linkMassagedProps = ({properties, self, block}: SwagTag) => {
       if(properties === undefined || (<any>properties)[massaged as any as string]) return;
       properties.forEach(prop =>{
         adjustValueAndType(prop);
@@ -51,7 +49,7 @@ import {
             anyProp.editor = SwagTagJsonEditor.is;
             break;
           case 'stringArray':
-            anyProp.editor = SwagTagMWCSelect.is;
+            anyProp.editor = SwagTagUI5Select.is;
             break;
           default:
             throw 'Not implemented';
@@ -69,7 +67,7 @@ import {
       bindSelf,
     ] as SelectiveUpdate<any>[];
   
-  export class SwagTagUI5 extends SwagTagBase{
+  export class SwagTagUI5 extends SwagTag{
       static is = 'swag-tag-ui5';
   
       updateTransforms = updateTransforms;

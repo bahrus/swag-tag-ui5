@@ -6,6 +6,7 @@
   "module": "swag-tag-mwc.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "es-dev-server --app-index demo/dev.html --node-resolve --watch --open",
     "ui5-input-example1": "wca analyze demo/ui5-input-example1.js --outFile demo/ui5-input-example1.json"
   },
   "dependencies": {
