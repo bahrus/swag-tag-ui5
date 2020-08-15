@@ -10,10 +10,10 @@
     "ui5-input-example1": "wca analyze demo/ui5-input-example1.js --outFile demo/ui5-input-example1.json"
   },
   "dependencies": {
-    "trans-render": "0.0.239",
-    "xtal-element": "0.0.266",
+    "trans-render": "0.0.246",
+    "xtal-element": "0.0.274",
     "@ui5/webcomponents": "1.0.0-rc.8",
-    "swag-tag": "0.0.23"
+    "swag-tag": "0.0.29"
   },
   "devDependencies": {
     "es-dev-server": "1.57.2"
