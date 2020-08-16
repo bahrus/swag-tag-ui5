@@ -12,6 +12,7 @@
   "dependencies": {
     "trans-render": "0.0.246",
     "xtal-element": "0.0.274",
+    "xtal-side-nav": "0.0.3",
     "@ui5/webcomponents": "1.0.0-rc.8",
     "swag-tag": "0.0.29"
   },
