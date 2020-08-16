@@ -1,8 +1,9 @@
-import { XtalElement, define, symbolize, p, TransformValueOptions, AttributeProps, SelectiveUpdate } from 'xtal-element/XtalElement.js';
+import { XtalElement, define, symbolize, p, TransformValueOptions, AttributeProps, SelectiveUpdate, Plugins, RenderContext } from 'xtal-element/XtalElement.js';
 import { createTemplate } from 'trans-render/createTemplate.js';
 import {templStampSym} from 'trans-render/plugins/templStamp.js';
 import 'xtal-side-nav/xtal-side-nav.js';
-import '@ui5/webcomponents/dist/Button.js';
+import '@ui5/webcomponents/dist/Link.js';
+//import 'p-et-alia/p-d.js';
 
 const mainTemplate = createTemplate(/* html */`
 <slot name=linkList part=linksSlot style=display:none></slot>
@@ -11,6 +12,7 @@ const mainTemplate = createTemplate(/* html */`
 	<div part=componentList>
 	</div>
 </xtal-side-nav>
+<iframe name=demoFrame></iframe>
 `);
 const uiRefs = {linksSlot: p, componentList: p};
 symbolize(uiRefs);
@@ -34,11 +36,18 @@ const propActions = [
     linkLinks,
 ];
 const bindLinks = ({links}: SwagTagCatalogUI5) => ({
-	[uiRefs.componentList]: [links,'ui5-button']
+	[uiRefs.componentList]: [links,'ui5-link',,populateLink]
 });
 const updateTransforms = [
 	bindLinks
 ] as SelectiveUpdate<any>[];
+const populateLink = ({item}: RenderContext) => ({
+    'ui5-link': [{
+         textContent: item.textContent,
+         href: item.href,
+         target: 'demoFrame',
+    }]
+});
 export class SwagTagCatalogUI5 extends XtalElement{
 	static is = 'swag-tag-catalog-ui5';
 	static attributeProps = ({ linkAssignedNodes, links }: SwagTagCatalogUI5) => ({
