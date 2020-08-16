@@ -5,6 +5,12 @@ import 'xtal-side-nav/xtal-side-nav.js';
 import '@ui5/webcomponents/dist/Link.js';
 //import 'p-et-alia/p-d.js';
 const mainTemplate = createTemplate(/* html */ `
+<style>
+iframe{
+    width:100%;
+    height:calc(100vh - 100px);
+}
+</style>
 <slot name=linkList part=linksSlot style=display:none></slot>
 <xtal-side-nav>
 	<span slot=title>Catalog</span>
