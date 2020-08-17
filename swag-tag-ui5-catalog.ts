@@ -10,8 +10,10 @@ import '@ui5/webcomponents-icons/dist/icons/group.js';
 import '@ui5/webcomponents-icons/dist/icons/calendar.js';
 import '@ui5/webcomponents-icons/dist/icons/chain-link.js';
 import '@ui5/webcomponents-icons/dist/icons/history.js';
+import '@ui5/webcomponents/dist/ToggleButton.js';
+import '@ui5/webcomponents-fiori/dist/ShellBar.js';
 
-//import 'p-et-alia/p-d.js';
+import 'p-et-alia/p-d.js';
 
 const mainTemplate = createTemplate(/* html */`
 <style>
@@ -26,10 +28,11 @@ primary-title="UI5 Web Components"
 secondary-title="The Best Run SAP"
 show-co-pilot
 >
-	<ui5-button icon="menu" slot="startButton" id="startButton"></ui5-button>
+    <ui5-togglebutton icon="menu" slot="startButton" id="startButton"></ui5-togglebutton>
+    <p-d on=click from=ui5-shellbar to=ui5-side-navigation[-collapsed] val=target.pressed parse-val-as=falsy></p-d>
 </ui5-shellbar>
 
-<ui5-side-navigation>
+<ui5-side-navigation -collapsed>
 	<ui5-side-navigation-item text="Home" icon="home"></ui5-side-navigation-item>
 	<ui5-side-navigation-item text="People" expanded icon="group">
 		<ui5-side-navigation-sub-item text="From My Team"></ui5-side-navigation-sub-item>
