@@ -1,10 +1,10 @@
 import { XtalElement, define, symbolize, p } from 'xtal-element/XtalElement.js';
 import { createTemplate } from 'trans-render/createTemplate.js';
 import { templStampSym } from 'trans-render/plugins/templStamp.js';
-import '@ui5/webcomponents/dist/Link.js';
 import '@ui5/webcomponents-fiori/dist/SideNavigation.js';
 import '@ui5/webcomponents-fiori/dist/SideNavigationItem.js';
 import '@ui5/webcomponents-fiori/dist/SideNavigationSubItem.js';
+import '@ui5/webcomponents-icons/dist/icons/menu.js';
 //import 'p-et-alia/p-d.js';
 const mainTemplate = createTemplate(/* html */ `
 <style>
