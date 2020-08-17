@@ -7,10 +7,12 @@ import '@ui5/webcomponents-fiori/dist/SideNavigationSubItem.js';
 import '@ui5/webcomponents-icons/dist/icons/menu.js';
 import '@ui5/webcomponents-icons/dist/icons/home.js';
 import '@ui5/webcomponents-icons/dist/icons/group.js';
+import '@ui5/webcomponents-icons/dist/icons/tree.js';
 import '@ui5/webcomponents-icons/dist/icons/calendar.js';
 import '@ui5/webcomponents-icons/dist/icons/chain-link.js';
 import '@ui5/webcomponents-icons/dist/icons/create-form.js';
 import '@ui5/webcomponents-icons/dist/icons/history.js';
+import '@ui5/webcomponents-icons/dist/icons/vertical-bar-chart.js';
 import '@ui5/webcomponents/dist/ToggleButton.js';
 import '@ui5/webcomponents-fiori/dist/ShellBar.js';
 
@@ -36,11 +38,8 @@ show-co-pilot
     <ui5-side-navigation -collapsed>
         <ui5-side-navigation-item text="Home" icon="home"></ui5-side-navigation-item>
         <ui5-side-navigation-item text="Form Components" expanded icon="create-form" part=componentList></ui5-side-navigation-item>
-        <ui5-side-navigation-item text="Locations" icon="locate-me" selected></ui5-side-navigation-item>
-        <ui5-side-navigation-item text="Events" icon="calendar">
-            <ui5-side-navigation-sub-item text="Local"></ui5-side-navigation-sub-item>
-            <ui5-side-navigation-sub-item text="Others"></ui5-side-navigation-sub-item>
-        </ui5-side-navigation-item>
+        <ui5-side-navigation-item text="Navigation Components" icon="tree"></ui5-side-navigation-item>
+        <ui5-side-navigation-item text="Charting Components" icon="vertical-bar-chart"></ui5-side-navigation-item>
 
         <ui5-side-navigation-item slot="fixedItems" text="Useful Links" icon="chain-link"></ui5-side-navigation-item>
         <ui5-side-navigation-item slot="fixedItems" text="History" icon="history"></ui5-side-navigation-item>
