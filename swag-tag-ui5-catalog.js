@@ -9,6 +9,7 @@ import '@ui5/webcomponents-icons/dist/icons/home.js';
 import '@ui5/webcomponents-icons/dist/icons/group.js';
 import '@ui5/webcomponents-icons/dist/icons/calendar.js';
 import '@ui5/webcomponents-icons/dist/icons/chain-link.js';
+import '@ui5/webcomponents-icons/dist/icons/create-form.js';
 import '@ui5/webcomponents-icons/dist/icons/history.js';
 import '@ui5/webcomponents/dist/ToggleButton.js';
 import '@ui5/webcomponents-fiori/dist/ShellBar.js';
@@ -22,8 +23,8 @@ iframe{
 </style>
 <slot name=linkList part=linksSlot style=display:none></slot>
 <ui5-shellbar
-primary-title="UI5 Web Components"
-secondary-title="The Best Run SAP"
+primary-title="UI5 Web Component Catalog"
+secondary-title="TBD"
 show-co-pilot
 >
     <ui5-togglebutton icon="menu" slot="startButton" id="startButton"></ui5-togglebutton>
@@ -32,9 +33,8 @@ show-co-pilot
 
 <ui5-side-navigation -collapsed>
 	<ui5-side-navigation-item text="Home" icon="home"></ui5-side-navigation-item>
-	<ui5-side-navigation-item text="People" expanded icon="group">
-		<ui5-side-navigation-sub-item text="From My Team"></ui5-side-navigation-sub-item>
-		<ui5-side-navigation-sub-item text="From Other Teams"></ui5-side-navigation-sub-item>
+	<ui5-side-navigation-item text="Form Components" expanded icon="create-form" part=componentList>
+		
 	</ui5-side-navigation-item>
 	<ui5-side-navigation-item text="Locations" icon="locate-me" selected></ui5-side-navigation-item>
 	<ui5-side-navigation-item text="Events" icon="calendar">
@@ -45,11 +45,7 @@ show-co-pilot
 	<ui5-side-navigation-item slot="fixedItems" text="Useful Links" icon="chain-link"></ui5-side-navigation-item>
 	<ui5-side-navigation-item slot="fixedItems" text="History" icon="history"></ui5-side-navigation-item>
 </ui5-side-navigation>
-<!-- <xtal-side-nav>
-	<span slot=title>Catalog</span>
-	<div part=componentList>
-	</div>
-</xtal-side-nav> -->
+
 <iframe name=demoFrame></iframe>
 `);
 const uiRefs = { linksSlot: p, componentList: p };
@@ -73,14 +69,14 @@ const propActions = [
     linkLinks,
 ];
 const bindLinks = ({ links }) => ({
-    [uiRefs.componentList]: [links, 'ui5-link', , populateLink]
+    [uiRefs.componentList]: [links, 'ui5-side-navigation-sub-item', , populateLink]
 });
 const updateTransforms = [
     bindLinks
 ];
 const populateLink = ({ item }) => ({
-    'ui5-link': [{
-            textContent: item.textContent,
+    'ui5-side-navigation-sub-item': [{
+            text: item.textContent,
             href: item.href,
             target: 'demoFrame',
         }]
