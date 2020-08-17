@@ -5,6 +5,11 @@ import '@ui5/webcomponents-fiori/dist/SideNavigation.js';
 import '@ui5/webcomponents-fiori/dist/SideNavigationItem.js';
 import '@ui5/webcomponents-fiori/dist/SideNavigationSubItem.js';
 import '@ui5/webcomponents-icons/dist/icons/menu.js';
+import '@ui5/webcomponents-icons/dist/icons/home.js';
+import '@ui5/webcomponents-icons/dist/icons/group.js';
+import '@ui5/webcomponents-icons/dist/icons/calendar.js';
+import '@ui5/webcomponents-icons/dist/icons/chain-link.js';
+import '@ui5/webcomponents-icons/dist/icons/history.js';
 //import 'p-et-alia/p-d.js';
 const mainTemplate = createTemplate(/* html */ `
 <style>
