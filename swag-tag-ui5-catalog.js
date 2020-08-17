@@ -33,9 +33,7 @@ show-co-pilot
 
 <ui5-side-navigation -collapsed>
 	<ui5-side-navigation-item text="Home" icon="home"></ui5-side-navigation-item>
-	<ui5-side-navigation-item text="Form Components" expanded icon="create-form" part=componentList>
-		
-	</ui5-side-navigation-item>
+    <ui5-side-navigation-item text="Form Components" expanded icon="create-form" part=componentList></ui5-side-navigation-item>
 	<ui5-side-navigation-item text="Locations" icon="locate-me" selected></ui5-side-navigation-item>
 	<ui5-side-navigation-item text="Events" icon="calendar">
 		<ui5-side-navigation-sub-item text="Local"></ui5-side-navigation-sub-item>
@@ -45,8 +43,9 @@ show-co-pilot
 	<ui5-side-navigation-item slot="fixedItems" text="Useful Links" icon="chain-link"></ui5-side-navigation-item>
 	<ui5-side-navigation-item slot="fixedItems" text="History" icon="history"></ui5-side-navigation-item>
 </ui5-side-navigation>
+<p-d on=selection-change to=[-src] val=detail.item.dataset.href m=1 skip-init></p-d>
 
-<iframe name=demoFrame></iframe>
+<iframe name=demoFrame -src></iframe>
 `);
 const uiRefs = { linksSlot: p, componentList: p };
 symbolize(uiRefs);
@@ -77,8 +76,9 @@ const updateTransforms = [
 const populateLink = ({ item }) => ({
     'ui5-side-navigation-sub-item': [{
             text: item.textContent,
-            href: item.href,
-            target: 'demoFrame',
+            dataset: {
+                href: item.href,
+            }
         }]
 });
 export class SwagTagCatalogUI5 extends XtalElement {
