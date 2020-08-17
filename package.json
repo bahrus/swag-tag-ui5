@@ -1,6 +1,6 @@
 {
   "name": "swag-tag-ui5",
-  "version": "0.0.0",
+  "version": "0.0.1",
   "description": "UI5-based component viewer",
   "main": "swag-tag-ui5.js",
   "module": "swag-tag-mwc.js",
