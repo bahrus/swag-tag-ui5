@@ -30,24 +30,24 @@ secondary-title="TBD"
 show-co-pilot
 >
     <ui5-togglebutton icon="menu" slot="startButton" id="startButton"></ui5-togglebutton>
-    <p-d on=click from=ui5-shellbar to=ui5-side-navigation[-collapsed] val=target.pressed parse-val-as=falsy></p-d>
+    <p-d on=click from=ui5-shellbar to=div care-of=ui5-side-navigation[-collapsed] val=target.pressed parse-val-as=falsy></p-d>
 </ui5-shellbar>
+<div style="display:flex;flex-direction:row;">
+    <ui5-side-navigation -collapsed>
+        <ui5-side-navigation-item text="Home" icon="home"></ui5-side-navigation-item>
+        <ui5-side-navigation-item text="Form Components" expanded icon="create-form" part=componentList></ui5-side-navigation-item>
+        <ui5-side-navigation-item text="Locations" icon="locate-me" selected></ui5-side-navigation-item>
+        <ui5-side-navigation-item text="Events" icon="calendar">
+            <ui5-side-navigation-sub-item text="Local"></ui5-side-navigation-sub-item>
+            <ui5-side-navigation-sub-item text="Others"></ui5-side-navigation-sub-item>
+        </ui5-side-navigation-item>
 
-<ui5-side-navigation -collapsed>
-	<ui5-side-navigation-item text="Home" icon="home"></ui5-side-navigation-item>
-    <ui5-side-navigation-item text="Form Components" expanded icon="create-form" part=componentList></ui5-side-navigation-item>
-	<ui5-side-navigation-item text="Locations" icon="locate-me" selected></ui5-side-navigation-item>
-	<ui5-side-navigation-item text="Events" icon="calendar">
-		<ui5-side-navigation-sub-item text="Local"></ui5-side-navigation-sub-item>
-		<ui5-side-navigation-sub-item text="Others"></ui5-side-navigation-sub-item>
-	</ui5-side-navigation-item>
-
-	<ui5-side-navigation-item slot="fixedItems" text="Useful Links" icon="chain-link"></ui5-side-navigation-item>
-	<ui5-side-navigation-item slot="fixedItems" text="History" icon="history"></ui5-side-navigation-item>
-</ui5-side-navigation>
-<p-d on=selection-change to=[-src] val=detail.item.dataset.href m=1 skip-init></p-d>
-
-<iframe name=demoFrame -src></iframe>
+        <ui5-side-navigation-item slot="fixedItems" text="Useful Links" icon="chain-link"></ui5-side-navigation-item>
+        <ui5-side-navigation-item slot="fixedItems" text="History" icon="history"></ui5-side-navigation-item>
+    </ui5-side-navigation>
+    <p-d on=selection-change to=[-src] val=detail.item.dataset.href m=1 skip-init></p-d>
+    <iframe name=demoFrame -src></iframe>
+</div>
 `);
 const uiRefs = {linksSlot: p, componentList: p};
 symbolize(uiRefs);
